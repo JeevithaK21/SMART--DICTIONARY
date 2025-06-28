@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thesaurus - Smart Dictionary</title>
+    <link rel="stylesheet" href="thesaurus.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background overlay -->
+    <div class="background-overlay"></div>
+    
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <!-- Left side navigation buttons -->
+            <div class="nav-left">
+                <div class="logo">
+                    <i class="fas fa-book-open"></i>
+                    <span>SmartDict</span>
+                </div>
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-item">
+                        <i class="fas fa-home"></i>
+                        <span>Dictionary</span>
+                    </a>
+                    <a href="translate.html" class="nav-item">
+                        <i class="fas fa-language"></i>
+                        <span>Translate</span>
+                    </a>
+                    <a href="thesaurus.html" class="nav-item active">
+                        <i class="fas fa-list-ul"></i>
+                        <span>Thesaurus</span>
+                    </a>
+                    <a href="grammar.html" class="nav-item">
+                        <i class="fas fa-spell-check"></i>
+                        <span>Grammar</span>
+                    </a>
+                </nav>
+            </div>
+            
+            <!-- Right side user section -->
+            <div class="nav-right">
+                
+                
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Page Title -->
+            <div class="page-header">
+                <h1><i class="fas fa-list-ul"></i> Thesaurus</h1>
+                <p class="subtitle">Find synonyms and antonyms for any word</p>
+            </div>
+
+            <!-- Search Section -->
+            <div class="search-section">
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" id="thesaurusInput" placeholder="Enter a word to find synonyms and antonyms...">
+                        <button id="searchBtn" class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section" id="resultsSection">
+                <!-- Loading spinner -->
+                <div class="loading" id="loadingSpinner">
+                    <div class="spinner"></div>
+                    <p>Searching for synonyms and antonyms...</p>
+                </div>
+
+                <!-- Results container -->
+                <div class="results-container" id="resultsContainer">
+                    <!-- Word header -->
+                    <div class="word-header" id="wordHeader">
+                        <h2 id="searchedWord"></h2>
+                        <button class="favorite-btn" id="favoriteBtn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+
+                    <!-- Synonyms section -->
+                    <div class="synonyms-section">
+                        <h3><i class="fas fa-plus-circle"></i> Synonyms</h3>
+                        <div class="word-grid" id="synonymsGrid">
+                            <!-- Synonyms will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Antonyms section -->
+                    <div class="antonyms-section">
+                        <h3><i class="fas fa-minus-circle"></i> Antonyms</h3>
+                        <div class="word-grid" id="antonymsGrid">
+                            <!-- Antonyms will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- No results message -->
+                    <div class="no-results" id="noResults">
+                        <i class="fas fa-search"></i>
+                        <h3>No results found</h3>
+                        <p>We couldn't find synonyms or antonyms for this word. Try a different word or check your spelling.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Suggestions -->
+            <div class="suggestions-section">
+                <h3>Popular Searches</h3>
+                <div class="suggestions-grid">
+                    <button class="suggestion-btn" onclick="searchWord('happy')">happy</button>
+                    <button class="suggestion-btn" onclick="searchWord('beautiful')">beautiful</button>
+                    <button class="suggestion-btn" onclick="searchWord('intelligent')">intelligent</button>
+                    <button class="suggestion-btn" onclick="searchWord('strong')">strong</button>
+                    <button class="suggestion-btn" onclick="searchWord('fast')">fast</button>
+                    <button class="suggestion-btn" onclick="searchWord('big')">big</button>
+                    <button class="suggestion-btn" onclick="searchWord('good')">good</button>
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 SmartDict. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form class="auth-form">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sign Up</h2>
+            <form class="auth-form">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="thes.js"></script>
+</body>
+</html>

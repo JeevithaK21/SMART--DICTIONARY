@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Dictionary - Home</title>
+    <link rel="stylesheet" href="dictionary.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Left Corner Navigation Buttons -->
+            <div class="nav-left">
+                <div class="logo">
+                    <i class="fas fa-book"></i>
+                    <span>SmartDict</span>
+                </div>
+                <div class="nav-buttons">
+                    <a href="dictionary.html" class="nav-btn active">
+                        <i class="fas fa-book-open"></i>
+                        Dictionary
+                    </a>
+                    <a href="translate.html" class="nav-btn">
+                        <i class="fas fa-language"></i>
+                        Translate
+                    </a>
+                    <a href="thesaurus.html" class="nav-btn">
+                        <i class="fas fa-list-ul"></i>
+                        Thesaurus
+                    </a>
+                    <a href="grammar.html" class="nav-btn">
+                        <i class="fas fa-spell-check"></i>
+                        Grammar
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Corner Buttons -->
+            <div class="nav-right">
+                
+                <div class="auth-buttons">
+                    <button class="auth-btn login-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Login
+                    </button>
+                    <button class="auth-btn signup-btn">
+                        <i class="fas fa-user-plus"></i>
+                        Sign Up
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Discover the Power of Words
+                    <span class="title-highlight">Smart Dictionary</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Explore definitions, pronunciations, and meanings with our intelligent dictionary platform
+                </p>
+            </div>
+        </section>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search for any word..." autocomplete="off">
+                    <button class="search-btn" id="searchBtn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="voice-btn" id="voiceBtn">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                </div>
+                <div class="search-suggestions" id="suggestions"></div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section" id="resultsSection">
+            <div class="results-container">
+                <!-- Word Header -->
+                <div class="word-header" id="wordHeader" style="display: none;">
+                    <div class="word-info">
+                        <h2 class="word-title" id="wordTitle"></h2>
+                        <div class="word-meta">
+                            <span class="phonetic" id="phonetic"></span>
+                            <button class="play-audio" id="playAudio">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                            <button class="add-favorite" id="addFavorite">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Definitions -->
+                <div class="definitions-container" id="definitionsContainer">
+                    <!-- Definitions will be dynamically loaded here -->
+                </div>
+
+                <!-- Loading State -->
+                <div class="loading" id="loadingState">
+                    <div class="spinner"></div>
+                    <p>Searching for definitions...</p>
+                </div>
+
+                <!-- Error State -->
+                <div class="error-state" id="errorState" style="display: none;">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>Word Not Found</h3>
+                    <p>Sorry, we couldn't find the definition for this word. Please check the spelling and try again.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Words Section -->
+        <section class="featured-section">
+            <div class="featured-container">
+                <h2 class="section-title">
+                    <i class="fas fa-star"></i>
+                    Word of the Day
+                </h2>
+                <div class="featured-words">
+                    <div class="featured-word-card" data-word="serendipity">
+                        <h3>Serendipity</h3>
+                        <p class="featured-phonetic">/ˌserənˈdipədē/</p>
+                        <p class="featured-definition">The occurrence of events by chance in a happy way</p>
+                        <span class="word-type">noun</span>
+                    </div>
+                    <div class="featured-word-card" data-word="eloquent">
+                        <h3>Eloquent</h3>
+                        <p class="featured-phonetic">/ˈeləkwənt/</p>
+                        <p class="featured-definition">Fluent and persuasive in speaking or writing</p>
+                        <span class="word-type">adjective</span>
+                    </div>
+                    <div class="featured-word-card" data-word="ubiquitous">
+                        <h3>Ubiquitous</h3>
+                        <p class="featured-phonetic">/yo͞oˈbikwədəs/</p>
+                        <p class="featured-definition">Present everywhere at the same time</p>
+                        <span class="word-type">adjective</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close" id="closeLogin">&times;</span>
+            <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+                <p class="form-link">Don't have an account? <a href="#" id="switchToSignup">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signupModal">
+        <div class="modal-content">
+            <span class="close" id="closeSignup">&times;</span>
+            <h2><i class="fas fa-user-plus"></i> Sign Up</h2>
+            <form id="signupForm">
+                <div class="form-group">
+                    <input type="text" placeholder="Full Name" required>
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                <button type="submit" class="submit-btn">Sign Up</button>
+                <p class="form-link">Already have an account? <a href="#" id="switchToLogin">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="dictionary.js"></script>
+</body>
+</html>

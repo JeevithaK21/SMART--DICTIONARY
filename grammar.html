@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar - Smart Dictionary</title>
+    <link rel="stylesheet" href="grammar.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Header -->
+        <header class="header">
+            <nav class="navbar">
+                <div class="nav-left">
+                    <div class="logo">
+                        <i class="fas fa-book-open"></i>
+                        <span>SmartDict</span>
+                    </div>
+                    <div class="nav-buttons">
+                        <a href="index.html" class="nav-btn">
+                            <i class="fas fa-book"></i>
+                            Dictionary
+                        </a>
+                        <a href="translate.html" class="nav-btn">
+                            <i class="fas fa-language"></i>
+                            Translate
+                        </a>
+                        <a href="thesaurus.html" class="nav-btn">
+                            <i class="fas fa-list-ul"></i>
+                            Thesaurus
+                        </a>
+                        <a href="grammar.html" class="nav-btn active">
+                            <i class="fas fa-spell-check"></i>
+                            Grammar
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="grammar-section">
+                <div class="page-title">
+                    <h1><i class="fas fa-spell-check"></i> Grammar  Learn</h1>
+                    <p>Improve your writing with our advanced grammar checker and learning tools</p>
+                </div>
+
+
+                <!-- Grammar Rules -->
+                <div class="tool-card grammar-rules">
+                    <h2><i class="fas fa-book-open"></i> Grammar Rules & Tips</h2>
+                    <div class="rules-grid">
+                        <div class="rule-category" onclick="showRules('tenses')">
+                            <i class="fas fa-clock"></i>
+                            <h3>Tenses</h3>
+                            <p>Master past, present, and future tenses</p>
+                        </div>
+                        <div class="rule-category" onclick="showRules('punctuation')">
+                            <i class="fas fa-exclamation"></i>
+                            <h3>Punctuation</h3>
+                            <p>Learn proper use of commas, periods, and more</p>
+                        </div>
+                        <div class="rule-category" onclick="showRules('articles')">
+                            <i class="fas fa-font"></i>
+                            <h3>Articles</h3>
+                            <p>Understand when to use a, an, and the</p>
+                        </div>
+                        <div class="rule-category" onclick="showRules('prepositions')">
+                            <i class="fas fa-arrows-alt"></i>
+                            <h3>Prepositions</h3>
+                            <p>Master in, on, at, and other prepositions</p>
+                        </div>
+                        <div class="rule-category" onclick="showRules('subjectverb')">
+                            <i class="fas fa-balance-scale"></i>
+                            <h3>Subject-Verb Agreement</h3>
+                            <p>Ensure subjects and verbs match</p>
+                        </div>
+                        <div class="rule-category" onclick="showRules('modifiers')">
+                            <i class="fas fa-edit"></i>
+                            <h3>Modifiers</h3>
+                            <p>Use adjectives and adverbs correctly</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grammar Quiz -->
+                <div class="tool-card grammar-quiz">
+                    <h2><i class="fas fa-question-circle"></i> Quick Grammar Quiz</h2>
+                    <div id="quizContainer">
+                        <div class="quiz-question">
+                            <p id="questionText">Loading question...</p>
+                            <div class="quiz-options" id="quizOptions">
+                                <!-- Options will be populated by JavaScript -->
+                            </div>
+                            <div class="quiz-controls">
+                                <button class="quiz-btn" onclick="submitAnswer()">Submit Answer</button>
+                                <button class="quiz-btn secondary" onclick="nextQuestion()">Next Question</button>
+                            </div>
+                        </div>
+                        <div class="quiz-score">
+                            Score: <span id="quizScore">0</span>/10
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Rule Details Modal -->
+        <div id="ruleModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div id="ruleContent">
+                    <!-- Rule content will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Auth Modals -->
+        <div id="loginModal" class="modal">
+            <div class="modal-content auth-modal">
+                <span class="close" onclick="closeAuthModal('loginModal')">&times;</span>
+                <h2>Login</h2>
+                <form class="auth-form">
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="signupModal" class="modal">
+            <div class="modal-content auth-modal">
+                <span class="close" onclick="closeAuthModal('signupModal')">&times;</span>
+                <h2>Sign Up</h2>
+                <form class="auth-form">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <input type="password" placeholder="Confirm Password" required>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="grammar.js"></script>
+</body>
+</html>

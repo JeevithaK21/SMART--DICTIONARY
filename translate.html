@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translate - Smart Dictionary</title>
+    <link rel="stylesheet" href="translate.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo">
+                    <i class="fas fa-language"></i>
+                    <span>SmartDict</span>
+                </div>
+                <div class="nav-buttons">
+                    <a href="dictionary.html" class="nav-btn">
+                        <i class="fas fa-book"></i>
+                        Dictionary
+                    </a>
+                    <a href="translate.html" class="nav-btn active">
+                        <i class="fas fa-exchange-alt"></i>
+                        Translate
+                    </a>
+                    <a href="thesaurus.html" class="nav-btn">
+                        <i class="fas fa-list-ul"></i>
+                        Thesaurus
+                    </a>
+                    <a href="grammar.html" class="nav-btn">
+                        <i class="fas fa-spell-check"></i>
+                        Grammar
+                    </a>
+                </div>
+            </div>
+            <div class="nav-right">
+                
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Header Section -->
+            <div class="header-section">
+                <h1 class="page-title">
+                    <i class="fas fa-globe"></i>
+                    Language Translator
+                </h1>
+                <p class="page-subtitle">Translate text between different languages instantly</p>
+            </div>
+
+            <!-- Translation Card -->
+            <div class="translate-card">
+                <!-- Language Selection -->
+                <div class="language-bar">
+                    <div class="language-selector">
+                        <select id="sourceLanguage" class="language-select">
+                            <option value="auto">Detect Language</option>
+                            <option value="en">English</option>
+                            <option value="es">Spanish</option>
+                            <option value="fr">French</option>
+                            <option value="de">German</option>
+                            <option value="it">Italian</option>
+                            <option value="pt">Portuguese</option>
+                            <option value="ru">Russian</option>
+                            <option value="ja">Japanese</option>
+                            <option value="ko">Korean</option>
+                            <option value="zh">Chinese</option>
+                            <option value="ar">Arabic</option>
+                            <option value="hi">Hindi</option>
+                        </select>
+                        <div class="language-flag" id="sourceFlag">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                    </div>
+                    
+                    <button class="swap-btn" id="swapLanguages">
+                        <i class="fas fa-exchange-alt"></i>
+                    </button>
+                    
+                    <div class="language-selector">
+                        <select id="targetLanguage" class="language-select">
+                            <option value="es">Spanish</option>
+                            <option value="en">English</option>
+                            <option value="fr">French</option>
+                            <option value="de">German</option>
+                            <option value="it">Italian</option>
+                            <option value="pt">Portuguese</option>
+                            <option value="ru">Russian</option>
+                            <option value="ja">Japanese</option>
+                            <option value="ko">Korean</option>
+                            <option value="zh">Chinese</option>
+                            <option value="ar">Arabic</option>
+                            <option value="hi">Hindi</option>
+                        </select>
+                        <div class="language-flag" id="targetFlag">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Translation Areas -->
+                <div class="translation-container">
+                    <div class="input-section">
+                        <div class="textarea-header">
+                            <span class="section-label">Enter text to translate</span>
+                            <div class="input-actions">
+                                <button class="action-btn" id="clearBtn">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                                <button class="action-btn" id="speakSourceBtn">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <textarea 
+                            id="sourceText" 
+                            class="translate-textarea" 
+                            placeholder="Type your text here..."
+                            maxlength="5000"
+                        ></textarea>
+                        <div class="character-count">
+                            <span id="charCount">0</span>/5000
+                        </div>
+                    </div>
+
+                    <div class="output-section">
+                        <div class="textarea-header">
+                            <span class="section-label">Translation</span>
+                            <div class="output-actions">
+                                <button class="action-btn" id="copyBtn" title="Copy translation">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <button class="action-btn" id="speakTargetBtn" title="Listen to translation">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                                <button class="action-btn" id="saveBtn" title="Save to favorites">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="targetText" class="translate-output">
+                            <div class="placeholder-text">
+                                <i class="fas fa-language"></i>
+                                Translation will appear here...
+                            </div>
+                        </div>
+                        <div class="translation-info" id="translationInfo"></div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <button class="quick-btn" id="translateBtn">
+                        <i class="fas fa-exchange-alt"></i>
+                        Translate
+                    </button>
+                    <button class="quick-btn secondary" id="detectBtn">
+                        <i class="fas fa-search"></i>
+                        Detect Language
+                    </button>
+                </div>
+            </div>
+
+            <!-- Recent Translations -->
+            <div class="recent-section">
+                <h3 class="section-title">
+                    <i class="fas fa-history"></i>
+                    Recent Translations
+                </h3>
+                <div class="recent-translations" id="recentTranslations">
+                    <div class="recent-item">
+                        <div class="recent-text">
+                            <span class="source-text">Hello, how are you?</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="target-text">Hola, ¿cómo estás?</span>
+                        </div>
+                        <div class="recent-languages">EN → ES</div>
+                    </div>
+                    <div class="recent-item">
+                        <div class="recent-text">
+                            <span class="source-text">Good morning</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="target-text">Bonjour</span>
+                        </div>
+                        <div class="recent-languages">EN → FR</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Language Stats -->
+            <div class="stats-section">
+                <div class="stats-card">
+                    <i class="fas fa-globe-americas"></i>
+                    <div class="stats-info">
+                        <div class="stats-number">100+</div>
+                        <div class="stats-label">Languages Supported</div>
+                    </div>
+                </div>
+                <div class="stats-card">
+                    <i class="fas fa-bolt"></i>
+                    <div class="stats-info">
+                        <div class="stats-number">Instant</div>
+                        <div class="stats-label">Translation Speed</div>
+                    </div>
+                </div>
+                <div class="stats-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <div class="stats-info">
+                        <div class="stats-number">100%</div>
+                        <div class="stats-label">Privacy Protected</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loader">
+            <i class="fas fa-language"></i>
+            <span>Translating...</span>
+        </div>
+    </div>
+     <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close" id="closeLogin">&times;</span>
+            <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+                <p class="form-link">Don't have an account? <a href="#" id="switchToSignup">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signupModal">
+        <div class="modal-content">
+            <span class="close" id="closeSignup">&times;</span>
+            <h2><i class="fas fa-user-plus"></i> Sign Up</h2>
+            <form id="signupForm">
+                <div class="form-group">
+                    <input type="text" placeholder="Full Name" required>
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                <button type="submit" class="submit-btn">Sign Up</button>
+                <p class="form-link">Already have an account? <a href="#" id="switchToLogin">Login</a></p>
+            </form>
+        </div>
+    </div>
+     
+
+    <script src="translate.js"></script>
+    
+</body>
+</html>
