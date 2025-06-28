@@ -43,6 +43,7 @@ body { /* Reduce if it's large */
     min-height: auto;
     position: relative;
     z-index: 1;
+    background-color:#4e9ca0;
 }
 
 /* Header Styles */
